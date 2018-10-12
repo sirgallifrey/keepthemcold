@@ -4,8 +4,8 @@
 
 1. [About this project](#about-this-project)
 2. [Questions](#about-this-project)
-  1. [About the device](#about-the-device)
-  2. [About the data](#about-the-data)
+    1. [About the device](#about-the-device)
+    2. [About the data](#about-the-data)
 
 ## About this project
 
@@ -19,11 +19,12 @@ As instructed I'll be documenting the questions I would ask if this was a real l
 
 ### About the device
 
-**Q:** The requirements say that the driver will be alerted while driving, this raises the question of where this application will run and what are the cpabilities of this device. Is it a full flegd computer running windows or linux? Will it be an android phone or tablet? Or prehaps it is a embeded computer running embeded windows or some unix like system?
+**Q:** The requirements say that the driver will be alerted while driving, this raises the question of where this application will run and what are the cpabilities of this device. Is it a full flegd computer running windows or linux? Will it be an android phone or tablet? Or perhaps it is a embedded computer running *windows embedded* or some unix like system?
 
+**A:** 
 ---
 
-**Q:** What can we expect in terms of CPU and RAM avaliable? Will be there a browser avaliable or the app must be native?
+**Q:** What can we expect in terms of CPU and RAM available? Will be there a browser or the app must be native?
 
 ---
 
