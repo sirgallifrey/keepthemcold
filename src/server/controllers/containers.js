@@ -1,5 +1,6 @@
 'use strict';
 
+const boom = require('boom');
 const containers = require('../repositories/containers');
 
 function register(server) {
@@ -19,8 +20,9 @@ function indexAction() {
   return containers.getAll();
 }
 
-function createAction(request) {
-  return containers.create(request.payload);
+function createAction(request, responseToolkit) {
+  const container = containers.create(request.payload);
+  return responseToolkit.response(container).code(201);
 }
 
 function showAction(request) {
@@ -31,8 +33,9 @@ function updateAction(request) {
   return containers.updateById(request.params.id, request.payload);
 }
 
-function deleteAction(request) {
-  return containers.deleteById(request.params.id);
+function deleteAction(request, responseToolkit) {
+  containers.deleteById(request.params.id);
+  return responseToolkit.response("").code(204);
 }
 
 exports.register = register;

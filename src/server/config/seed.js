@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports = {
+const R = require('ramda');
+
+const seed = {
   containers: [
     {
       id: 1,
@@ -40,3 +42,5 @@ module.exports = {
     },
   ]
 };
+
+module.exports = () => R.clone(seed);
