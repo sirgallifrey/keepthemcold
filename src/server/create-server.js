@@ -1,12 +1,16 @@
 'use strict';
 const hapi = require('hapi');
 const nes = require('nes');
-const containers = require('./controllers/containers');
+const controllers = require('./controllers/controllers');
+const sockets = require('./sockets/sockets');
 
 async function createServer() {
   const server = new hapi.Server({ port: 9090 });
   await server.register(nes);
-  containers.register(server);
+
+  controllers.register(server);
+  sockets.register(server);
+
   return server;
 }
 

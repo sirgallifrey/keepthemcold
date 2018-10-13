@@ -1,4 +1,4 @@
-const containers = require('../../../../src/server/repositories/containers');
+const containers = require('../../../src/server/repositories/containers');
 
 describe('validate', () => {
 

@@ -43,6 +43,60 @@ describe('put /containers/{id}', () => {
     })
   });
 
+  it('publish all containers after update', async () => {
+    const requestPayload = {
+      id: 3,
+      label: 'Potter',
+      minTemperature: 2,
+      maxTemperature: 12,
+    };
+
+    server.publish = jest.fn(() => Promise.resolve());
+
+    await server.inject({ method, url: url(3), payload: requestPayload });
+    
+    expect(server.publish).toHaveBeenCalledWith(
+      '/containers',
+      [
+        {
+          id: 1,
+          label: 'Pilsener',
+          minTemperature: 4,
+          maxTemperature: 6,
+        },
+        {
+          id: 2,
+          label: 'IPA',
+          minTemperature: 5,
+          maxTemperature: 6,
+        },
+        {
+          id: 3,
+          label: 'Potter',
+          minTemperature: 2,
+          maxTemperature: 12,
+        },
+        {
+          id: 4,
+          label: 'Stout',
+          minTemperature: 6,
+          maxTemperature: 8,
+        },
+        {
+          id: 5,
+          label: 'Wheat beer',
+          minTemperature: 3,
+          maxTemperature: 5,
+        },
+        {
+          id: 6,
+          label: 'Pale Ale',
+          minTemperature: 4,
+          maxTemperature: 6,
+        },
+      ]
+    );
+  });
 
   it('returns code 400 when payload is invalid', async () => {
     const requestPayload = {

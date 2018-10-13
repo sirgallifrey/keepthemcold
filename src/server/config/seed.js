@@ -3,6 +3,7 @@
 const R = require('ramda');
 
 const seed = {
+  sensors: [],
   containers: [
     {
       id: 1,
