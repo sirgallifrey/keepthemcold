@@ -1,38 +1,64 @@
 'use strict';
 
 const containers = require('../repositories/containers');
-
-function register(server) {
-  server.route([
-    {path: '/containers', method: 'get', handler: indexAction },
-    {path: '/containers', method: 'post', handler: createAction },
-    {path: '/containers/{id}', method: 'get', handler: showAction },
-    {path: '/containers/{id}', method: 'put', handler: updateAction },
-    {path: '/containers/{id}', method: 'delete', handler: deleteAction },
-  ]);
-
-  server.subscription('/containers');
-  server.subscription('/containers/{id}');  
-}
+const sensors = require('../repositories/sensors');
+const containerSensorSocket = require('../sockets/container-sensor');
+const containersSocket = require('../sockets/containers');
+const R = require('ramda');
+const joi = require('joi');
 
 function indexAction() {
   return containers.getAll();
 }
 
-function createAction(request) {
-  return containers.create(request.payload);
+async function createAction(request, responseToolkit) {
+  const container = containers.create(request.payload);
+  await request.server.publish(
+    containersSocket.getPath(),
+    containers.getAll()
+  );  
+  return responseToolkit.response(container).code(201);
 }
 
 function showAction(request) {
   return containers.getById(request.params.id);
 }
 
-function updateAction(request) {
-  return containers.updateById(request.params.id, request.payload);
+async function updateAction(request) {
+  const updated = containers.updateById(request.params.id, request.payload);
+  await request.server.publish(
+    containersSocket.getPath(),
+    containers.getAll()
+  );
+  return updated;
 }
 
-function deleteAction(request) {
-  return containers.deleteById(request.params.id);
+function deleteAction(request, responseToolkit) {
+  containers.deleteById(request.params.id);
+  return responseToolkit.response("").code(204);
 }
 
-exports.register = register;
+async function sensorAction(request, responseToolkit) {
+  const id = parseInt(request.params.id, 10);
+  containers.getById(id);
+  const attributes = R.merge({ id }, request.payload);
+  const sensor = sensors.upsert(attributes);
+  await request.server.publish(
+    containerSensorSocket.getPath(id),
+    sensor
+  );
+  return responseToolkit.response(sensor).code(201);
+}
+
+const sensorActionPayoadSchema = joi.object().keys({
+  sensorTemperature: joi.number(),
+  temperatureSet: joi.number()
+});
+
+exports.indexAction = indexAction;
+exports.createAction = createAction;
+exports.showAction = showAction;
+exports.updateAction = updateAction;
+exports.deleteAction = deleteAction;
+exports.sensorActionPayoadSchema = sensorActionPayoadSchema;
+exports.sensorAction = sensorAction;
