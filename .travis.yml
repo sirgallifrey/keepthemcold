@@ -25,5 +25,5 @@ before_script:
   - fluxbox >/dev/null 2>&1 &
 
 script:
-  - npm lint
+  - npm run lint
   - npm test

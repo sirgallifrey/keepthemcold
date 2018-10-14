@@ -1,5 +1,7 @@
 # KeepThemCold
 
+[![Build Status](https://travis-ci.org/sirgallifrey/keepthemcold.svg?branch=master)](https://travis-ci.org/sirgallifrey/keepthemcold)
+
 ## Table of Contents
 
 1. [About this project](#about-this-project)
