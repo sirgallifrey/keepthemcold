@@ -1,0 +1,160 @@
+:local(.card) {
+  box-sizing: border-box;
+	overflow: hidden;
+	border-radius: 1.75rem;
+	margin: auto;
+	position: relative;
+	color: #fff;
+	background-size: 400% 400%;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #1CB5E0, #000046);
+  padding: 0;
+}
+
+:local(.cardBody) {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+:local(.card).alert {
+  background: linear-gradient(135deg, #f5af19, #f85032, #e73827, #e52d27, #b31217);
+  animation: Shake 6s ease-in-out infinite;
+}
+
+@keyframes Shake {
+	0% {
+		transform: rotate(0deg)
+	}
+	2% {
+		transform: rotate(3deg)
+	}
+	4% {
+		transform: rotate(-3deg)
+	}
+	6% {
+		transform: rotate(3deg)
+	}
+	8% {
+		transform: rotate(-3deg)
+	}
+	10% {
+		transform: rotate(0deg)
+	}
+}
+
+:local(.text) {
+	font-family: 'Open Sans';
+	font-weight: 300;
+	text-align: center;
+}
+
+:local(.sensorTemperature) {
+  user-select: none;
+	font-size: 6rem
+}
+:local(.label) {
+  user-select: none;
+	font-size: 1.75rem;
+}
+:local(.setTo) {
+  user-select: none;
+	font-size: 1.2rem;
+}
+
+:local(.celcius) {
+  user-select: none;
+	font-size: 4rem
+}
+
+:local(.sensorTemperatureWrapper) {
+	text-align: center;
+}
+
+:local(.drawer) > div {
+  user-select: none;
+  font-family: 'Open Sans';
+	font-weight: 300;
+	float: left;
+	width: 50%;
+	text-align: center;
+	padding: 1.75rem;
+	background-color: white;
+	box-sizing: border-box;
+	color: #555;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 1.25rem;
+}
+
+@media screen and (max-width: 1200px) {
+  :local(.sensorTemperature) {
+    font-size: 4rem
+  }
+  :local(.celcius) {
+    font-size: 2rem
+  }
+  :local(.label) {
+    font-size: 1.25rem;
+  }
+  
+  :local(.celcius) {
+    font-size: 2.75rem
+  }
+}
+
+@media screen and (max-height: 768px) {
+  :local(.sensorTemperature) {
+    font-size: 4rem
+  }
+  :local(.celcius) {
+    font-size: 2.5rem
+  }
+  :local(.label) {
+    font-size: 1.75rem;
+  }
+  :local(.setTo) {
+    font-size: 1rem;
+  }
+  :local(.drawer) > div {
+    padding: 1.25rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  :local(.sensorTemperature) {
+    font-size: 4rem
+  }
+  :local(.celcius) {
+    font-size: 2rem
+  }
+  :local(.label) {
+    font-size: 2rem;
+  }
+  :local(.drawer) > div {
+    padding: 0.75rem;
+    font-size: 1.75rem;
+    font-weight: normal;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  :local(.sensorTemperature) {
+    font-size: 2.5rem
+  }
+  :local(.celcius) {
+    font-size: 1.75rem
+  }
+  :local(.label) {
+    font-size: 1.2rem;
+  }
+  :local(.setTo) {
+    font-size: 1rem;
+  }
+  :local(.drawer) > div {
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  :local(.cardBody) {
+    padding: 0.75rem 0.75rem 0 0.75rem;
+  }
+}

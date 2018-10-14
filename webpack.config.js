@@ -3,13 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const path = require('path');
+const { spawn } = require('child_process');
 
 const inDevelopment = process.env.NODE_ENV !== 'production';
+const outDir = path.join(__dirname, '/dist');
 
 module.exports = {
   entry: './src/client/index.js',
   output: {
-    path: __dirname + '/dist',
+    path: outDir,
     publicPath: '/',
     filename: 'app.js',
   },
@@ -60,5 +63,20 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     hot: true,
+    host: '0.0.0.0',
+    port: '8080',
+    proxy: {
+      '/containers': 'http://localhost:9090'
+    },
+    setup() {
+      console.log('Staring Server Process...');
+      spawn(
+        'npm',
+        ['run', 'start-server'],
+        { shell: true, env: process.env, stdio: 'inherit' }
+      )
+        .on('close', code => process.exit(code))
+        .on('error', spawnError => console.error(spawnError));
+    }
   }
 };

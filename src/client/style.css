@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-style: normal;
+  src: url('./static/Light/OpenSans-Light.woff2') format('woff2'),
+  url('./static/Light/OpenSans-Light.woff') format('woff'),
+  url('./static/Light/OpenSans-Light.ttf') format('truetype'),
+  url('./static/Light/OpenSans-Light.svg#OpenSansLight') format('svg');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-style: normal;
+  src: url('./static/Regular/OpenSans-Regular.woff2') format('woff2'),
+  url('./static/Regular/OpenSans-Regular.woff') format('woff'),
+  url('./static/Regular/OpenSans-Regular.ttf') format('truetype'),
+  url('./static/Regular/OpenSans-Regular.svg#OpenSansRegular') format('svg');
+}
+
+body {
+  font-family: 'Open Sans';
+}
+
+.ktc_button {
+  border-radius: 0.4rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.5rem;
+  border: none;
+  background-color: #95A5A6;
+  color: white;
+  font-family: 'Open Sans';
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+  box-sizing: border-box;
+}

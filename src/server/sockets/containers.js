@@ -6,7 +6,7 @@ function getPath() {
   return '/containers';
 }
 
-async function onSubscribe(socket, path, params) {
+async function onSubscribe(socket, path) {
   await socket.publish(path, containers.getAll());
 }
 

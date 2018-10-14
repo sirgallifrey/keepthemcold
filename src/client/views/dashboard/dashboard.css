@@ -3,4 +3,66 @@
   background: #ECE9E6;
   background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
   background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+
+  background: #8e9eab;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+  padding-top: 3rem;
+}
+
+:local(.dashboard) > .container {
+  max-width: 1296px;
+}
+
+.dark-theme :local(.dashboard) {
+  background: #232526; 
+  background: -webkit-linear-gradient(to top, #414345, #232526);
+  background: linear-gradient(to top, #414345, #232526);
+}
+
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 16px;
+  }
+  :local(.dashboard) > .container {
+    max-width: 976px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+
+@media screen and (max-width: 840px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  :local(.dashboard) {
+    padding-top: 1rem;
+  }
 }
