@@ -1,0 +1,13 @@
+:local(.button):hover, :local(.button):focus {
+  background-color: #616d6d;
+  color: white;
+}
+
+:local(.button):focus {
+  box-shadow: 0 0 0 4px #98adad;
+}
+
+:local(.button).active { 
+  background-color: #26A65B;
+  color: white;
+}

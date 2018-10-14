@@ -1,0 +1,84 @@
+:local(.backdrop) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.36);
+  z-index: 100;
+  padding-top: 4rem;
+  padding-bottom: 8rem;
+  overflow-y: scroll;
+}
+
+:local(.label) {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+:local(.input) {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  display: block;
+  width: 100%;
+  border-radius: 0.4rem;
+  border: 0.15rem solid rgba(0,0,0,0.3);
+  outline: none;
+}
+
+:local(.input)[type='number'] {
+  -moz-appearance:textfield;
+}
+
+:local(.input)::-webkit-outer-spin-button,
+:local(.input)::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+:local(.input):focus {
+  border: 0.15rem solid #22A7F0;
+}
+
+:local(.button):hover, :local(.button):focus {
+  background-color: #1E824C;
+  color: white;
+}
+
+:local(.button):focus {
+  box-shadow: 0 0 0 4px #1E824C;
+}
+
+:local(.button) { 
+  background-color: #26A65B;
+  color: white;
+}
+
+:local(.error) {
+  background-color: #D91E18;
+  color: white;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 400px) {
+  :local(.label) {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  :local(.input) {
+    font-size: 2rem;
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 1.5rem;
+  } 
+  :local(.error) {
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+}
+

@@ -35,7 +35,7 @@ async function updateAction(request) {
 
 function deleteAction(request, responseToolkit) {
   containers.deleteById(request.params.id);
-  return responseToolkit.response("").code(204);
+  return responseToolkit.response('').code(204);
 }
 
 async function sensorAction(request, responseToolkit) {

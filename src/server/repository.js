@@ -9,6 +9,6 @@ const repo = low(new Memory());
 repo._.mixin(lodashId);
 
 repo.defaults(seed())
-  .write()
+  .write();
 
 module.exports = repo;
