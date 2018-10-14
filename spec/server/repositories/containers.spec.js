@@ -1,7 +1,6 @@
 const containers = require('../../../src/server/repositories/containers');
 
 describe('validate', () => {
-
   describe('with valid data', () => {
     it('wont throw if is valid', () => {
       containers.validate({

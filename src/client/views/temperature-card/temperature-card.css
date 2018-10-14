@@ -8,7 +8,7 @@
 	background-size: 400% 400%;
   margin-bottom: 16px;
   background: linear-gradient(135deg, #1CB5E0, #000046);
-  padding: 0;
+  padding: 0 !important;
 }
 
 :local(.cardBody) {
@@ -67,6 +67,10 @@
 
 :local(.sensorTemperatureWrapper) {
 	text-align: center;
+}
+
+:local(.drawer) {
+  background-color: white;
 }
 
 :local(.drawer) > div {

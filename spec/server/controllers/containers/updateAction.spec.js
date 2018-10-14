@@ -16,7 +16,7 @@ describe('put /containers/{id}', () => {
   it('returns code 200', async () => {
     const requestPayload = {
       id: 2,
-      label: "New Name",
+      label: 'New Name',
       minTemperature: 2,
       maxTemperature: 4,
     };
@@ -40,7 +40,7 @@ describe('put /containers/{id}', () => {
       label: 'Potter',
       minTemperature: 2,
       maxTemperature: 12,
-    })
+    });
   });
 
   it('publish all containers after update', async () => {
@@ -100,7 +100,7 @@ describe('put /containers/{id}', () => {
 
   it('returns code 400 when payload is invalid', async () => {
     const requestPayload = {
-      label: "Potter",
+      label: 'Potter',
       minTemperature: 2,
     };
 

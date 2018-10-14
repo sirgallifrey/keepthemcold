@@ -16,7 +16,7 @@ describe('post /containers', () => {
   it('returns code 201', async () => {
     const requestPayload = {
       id: 10,
-      label: "Potter",
+      label: 'Potter',
       minTemperature: 2,
       maxTemperature: 4,
     };
@@ -40,7 +40,7 @@ describe('post /containers', () => {
       label: 'Potter',
       minTemperature: 2,
       maxTemperature: 4,
-    })
+    });
   });
 
   it('publish all containers after creation', async () => {
@@ -107,7 +107,7 @@ describe('post /containers', () => {
     it('returns code 409', async () => {
       const requestPayload = {
         id: 1,
-        label: "Potter",
+        label: 'Potter',
         minTemperature: 2,
         maxTemperature: 4,
       };
@@ -119,7 +119,7 @@ describe('post /containers', () => {
 
   it('returns code 400 when payload is invalid', async () => {
     const requestPayload = {
-      label: "Potter",
+      label: 'Potter',
       minTemperature: 2,
     };
 

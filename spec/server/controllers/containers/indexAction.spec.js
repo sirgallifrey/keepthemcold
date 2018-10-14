@@ -58,6 +58,6 @@ describe('get /containers', () => {
         minTemperature: expect.any(Number),
         maxTemperature: expect.any(Number),
       },
-    ])
+    ]);
   });
 });

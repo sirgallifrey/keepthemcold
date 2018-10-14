@@ -74,7 +74,7 @@ describe('post /containers/{id}/sensors', () => {
 
     const response = await server.inject({ method, url: url(44), payload: requestPayload });
     expect(response.statusCode).toBe(404);
-  })
+  });
 
   it('returns code 400 when payload is invalid', async () => {
     const requestPayload = {

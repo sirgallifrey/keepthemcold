@@ -3,7 +3,6 @@ const timeTravel = require('../helpers/time-travel');
 
 describe('validate', () => {
   describe('with valid data', () => {
-
     it('wont throw if is valid', () => {
       sensors.validate({
         id: 1,
@@ -144,4 +143,4 @@ describe('upsert', () => {
       measuredAt: '2018-10-13T00:00:00.000Z'
     });
   });
-})
+});

@@ -1,0 +1,18 @@
+{
+  "globals": {
+    "describe": true,
+    "beforeEach": true,
+    "afterEach": true,
+    "afterAll": true,
+    "beforeAll": true,
+    "it": true,
+    "expect": true,
+    "jest": true,
+    "global": true,
+    "exports": true,
+    "require": true,
+    "Promise": true,
+    "module": true,
+    "Intl": true
+  }
+}

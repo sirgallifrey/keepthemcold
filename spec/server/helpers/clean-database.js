@@ -3,4 +3,4 @@ const repository = require('../../../src/server/repository');
 
 module.exports = () => {
   repository.setState(seed());
-}
+};

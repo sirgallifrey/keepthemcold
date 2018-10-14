@@ -22,7 +22,7 @@ describe('delete /containers/{id}', () => {
 
     it('returns nothing', async () => {
       const response = await server.inject({ method, url: url(2) });
-      expect(response.payload).toEqual("");
+      expect(response.payload).toEqual('');
     });
 
     it('removes container from the database', async () => {

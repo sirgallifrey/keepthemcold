@@ -1,8 +1,11 @@
 import React from 'react';
-import styles from './styles.css';
+import styles from './temperature-card.css';
 import Card from '../../components/card/card';
 import api from '../../api';
 import ContainerEdit from '../container-edit/container-edit';
+import interpretSensorData from './interpret-sensor-data';
+import TemperatureSet from './temperature-set';
+import SensorTemperature from './sensor-temperature';
 
 export default class TemperatureCard extends React.Component {
   constructor(props) {
@@ -42,23 +45,20 @@ export default class TemperatureCard extends React.Component {
     } = this.props.container;
 
     const {
-      temperatureSet,
-      sensorTemperature,
-    } = this.state.sensor;
-    const hasSensorData = sensorTemperature ? true : false;
-    const fixedSensorTemperature = hasSensorData ? sensorTemperature.toFixed(1) : 0;
-    const temperatureSetString = temperatureSet ? `${temperatureSet.toFixed(1)} C` : '?';
-    const outOfRange = hasSensorData && (fixedSensorTemperature < minTemperature || fixedSensorTemperature > maxTemperature);
-    const alert = outOfRange || !hasSensorData;
+      shouldAlert,
+      fixedSensorTemperature,
+      fixedTemperatureSet,
+    } = interpretSensorData(this.props.container, this.state.sensor);
+
     let className = styles.card;
-    if (alert) {
+    if (shouldAlert) {
       className += ' alert';
     }
     return (
       <div>
         {
           this.state.editing &&
-          <ContainerEdit onClose={this.handleCloseEdit} container={this.props.container}/>
+          <ContainerEdit onClose={this.handleCloseEdit} container={this.props.container} />
         }
         <Card className={className} onClick={() => this.setState({ editing: true })}>
           <div className={styles.cardBody}>
@@ -68,29 +68,13 @@ export default class TemperatureCard extends React.Component {
               </span>
             </div>
             <div>
-              <span className={styles.setTo}>
-                Set to: {temperatureSetString}
-              </span>
+              <TemperatureSet fixedTemperatureSet={fixedTemperatureSet} />
             </div>
-            {
-              hasSensorData &&
-              <div>
-                <span className={styles.sensorTemperature}>
-                  {fixedSensorTemperature}
-                </span>
-                <span className={styles.celcius}>C</span>
-              </div>
-            }
-            {
-              !hasSensorData &&
-              <div>
-                <span className={styles.sensorTemperature}>?</span>
-              </div>
-            }
+            <SensorTemperature fixedSensorTemperature={fixedSensorTemperature} />
           </div>
           <div className={styles.drawer}>
-            <div><span>Min: {minTemperature}C</span></div>
-            <div><span>Max: {maxTemperature}C</span></div>
+            <div><span>Min: {minTemperature} °C</span></div>
+            <div><span>Max: {maxTemperature} °C</span></div>
           </div>
         </Card>
       </div>
