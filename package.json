@@ -9,10 +9,10 @@
     "build": "webpack --config ./webpack.config.js --mode production",
     "start-server": "nodemon --watch src/server src/server/index.js",
     "lint": "eslint src spec",
-    "e2e-chromium":  "testcafe chromium e2e/features/*.feature.js -Ss screenshots --app \"npm start\"",
-    "e2e-chrome":  "testcafe chrome e2e/features/*.feature.js -Ss screenshots --app \"npm start\"",
-    "e2e-firefox":  "testcafe firefox e2e/features/*.feature.js -Ss screenshots --app \"npm start\"",
-    "e2e":  "testcafe chrome,firefox e2e/features/*.feature.js -Ss screenshots --app \"npm start\""
+    "e2e-chromium": "testcafe chromium e2e/features/*.feature.js -Ss screenshots --app \"npm start\"",
+    "e2e-chrome": "testcafe chrome e2e/features/*.feature.js -Ss screenshots --app \"npm start\"",
+    "e2e-firefox": "testcafe firefox e2e/features/*.feature.js -Ss screenshots --app \"npm start\"",
+    "e2e": "testcafe chrome,firefox e2e/features/*.feature.js -Ss screenshots --app \"npm start\""
   },
   "author": "Adilson Schmitt Junior <adilsonschj@gmail.com>",
   "license": "MIT",
@@ -31,6 +31,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "file-loader": "^2.0.0",
+    "got": "^9.2.2",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.4.4",
