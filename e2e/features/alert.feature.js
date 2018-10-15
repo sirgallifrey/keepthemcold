@@ -6,12 +6,10 @@ const I = new Actor();
 
 fixture('Alert')
   .page('localhost:8080')
-  .beforeEach(async (t) =>
-    Promise.all([
-      setAllContainersToDefault,
-      setAllSensorStateToWithinRange,
-    ])
-  );
+  .beforeEach(async (t) => {
+    await setAllContainersToDefault();
+    await setAllSensorStateToWithinRange();
+  });
 
 test('Should not have alerts if temperatures are ok', async t => {
   await setAllSensorStateToWithinRange();

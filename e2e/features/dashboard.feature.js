@@ -6,12 +6,10 @@ const I = new Actor();
 
 fixture('Dashboard')
   .page('localhost:8080')
-  .beforeEach(async (t) =>
-    Promise.all([
-      setAllContainersToDefault,
-      setAllSensorStateToWithinRange,
-    ])
-  );
+  .beforeEach(async (t) => {
+    await setAllContainersToDefault();
+    await setAllSensorStateToWithinRange();
+  });
 
 test('Has default containers', async t => {
   await I.see('1 - Pilsener');

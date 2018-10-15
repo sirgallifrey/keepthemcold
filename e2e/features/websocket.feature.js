@@ -6,12 +6,10 @@ const I = new Actor();
 
 fixture('Websocket')
   .page('localhost:8080')
-  .beforeEach(async (t) =>
-    Promise.all([
-      setAllContainersToDefault,
-      setAllSensorStateToWithinRange,
-    ])
-  );
+  .beforeEach(async (t) => {
+    await setAllContainersToDefault();
+    await setAllSensorStateToWithinRange();
+  });
 
 test('Updates when server broadcasts to sensor 1', async t => {
   await setSensorState(1, {
