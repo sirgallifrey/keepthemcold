@@ -27,5 +27,5 @@ before_script:
 script:
   - npm run lint
   - npm test
-  - npm run e2e
-  
+  - npm run e2e-chrome
+  - npm run e2e-firefox
